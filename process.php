@@ -1,6 +1,6 @@
 <?php
 	set_time_limit(0); 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/intrafatec/backup/scripts/connection.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . 'connection.php');
 	require_once('processFunctions.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

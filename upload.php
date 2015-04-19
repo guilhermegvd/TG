@@ -1,5 +1,5 @@
-<?php 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/intrafatec/backup/scripts/connection.php');
+<?php
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/intrafatec/tg/scripts/connection.php');
 	//unset($_SERVER['PHP_AUTH_USER']);
 	if (!isset($_SERVER['PHP_AUTH_USER'])) {
     	header('WWW-Authenticate: Basic realm="Intrafatec Upload Service Authentication"');
@@ -12,7 +12,7 @@
 		$data = mysqli_query($dbc, $query);
 		$row = mysqli_fetch_array($data);
 		mysqli_close($dbc);
-		if(mysqli_num_rows($data) == 1) 
+		if(mysqli_num_rows($data) == 1)
 		{
 			// Acesso permitido
 			$id_usr = $row['id'];
@@ -106,7 +106,7 @@
 	
 	echo "<ul>";
 	while ($row = mysqli_fetch_array($data)) {
-    	echo '<li><a href="docs/' . $row[1] . '">' . $row[0] . ' - Statu: ' . $row[2] . '</a>' . ($row[2] != 1 ? '<a href="process.php?tg=' . $row[1] . '"><button type="button">Indexar</button></a>' : '') . '</li>';
+    	echo '<li><a href="docs/' . $row[1] . '">' . $row[0] . ' - Statu: ' . $row[2] . '</a>' . ($row[2] != 1 ? '<a href="scripts/process.php?tg=' . $row[1] . '"><button type="button">Indexar</button></a>' : '') . '</li>';
 	}
 	echo "</ul>";
 	mysqli_close($dbc);

@@ -50,15 +50,12 @@ function indexar($palavra, $filename) {
 	if($data) {
 		if (mysqli_num_rows($data)==0) {
 			
-			foreach($palavra[1] as $p)
+			foreach($palavra as $p)
 			if(trim($p)=='')
 				continue;
 			else
-				echo $p . '<br />';
-				
 				$sqlString .= '(' . $idTDOCUMENTO . ', "' . $p . '"),';
 				
-	
 			$sqlString = substr($sqlString, 0, -1);
 	
 			desativaIndices($dbc);

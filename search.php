@@ -1,6 +1,6 @@
 <?php 
-	require_once($_SERVER['DOCUMENT_ROOT'] . '/intrafatec/backup/scripts/connection.php');
-	require_once('searchFunctions.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/intrafatec/tg/scripts/connection.php');
+	require_once($_SERVER['DOCUMENT_ROOT'] . '/intrafatec/tg/scripts/searchFunctions.php');
 
 	if(isset($_GET['q'])) {
 		$termos = strip_tags($_GET['q']);

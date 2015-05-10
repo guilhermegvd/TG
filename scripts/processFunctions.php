@@ -47,7 +47,6 @@ function indexar($palavra, $filename) {
 	
 	$query = "SELECT id from TOCORRENCIA WHERE cdocumento=" . $idTDOCUMENTO . " LIMIT 1";
 	$data = mysqli_query($dbc, $query);
-	$mensagem = 'ERRO!!';
 	if($data) {
 		if (mysqli_num_rows($data)==0) {
 			
@@ -70,7 +69,7 @@ function indexar($palavra, $filename) {
 				$response = mysqli_query($dbc, $query);
 				if($response) {
 					$dbc->commit();
-					$mensagem = 'A indexacao deste documento foi realizada com sucesso!';
+					echo 'A indexacao deste documento foi realizada com sucesso!';
 				}
 				else {
 					$dbc->rollback();
@@ -82,16 +81,8 @@ function indexar($palavra, $filename) {
 	
 			reativaIndices($dbc);
 		}
-		else $mensagem = 'Ja existe este documento na base de ocorrencias';
+		else echo 'Ja existe este documento na base de ocorrencias';
 	}
-	echo '<br />' . $mensagem;
-	echo '<br /><br /> Palavras obtidas sem preposicoes:<br />';
-	foreach($palavra as $p)
-		if(trim($p)=='')
-			continue;
-		else
-			echo $p . ' ';
-		
 	mysqli_close($dbc);
 }
 
